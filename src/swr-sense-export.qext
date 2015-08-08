@@ -1,0 +1,14 @@
+{
+	"name" : "sense-export",
+	"description" : "@@pkg.description",
+	"icon" : "extension",
+	"type" : "visualization",
+	"version": "@@pkg.version",
+	"preview" : "version-not-supported.png",
+	"author": "@@pkg.author",
+	"homepage": "",
+  "keywords": "qlik-sense, visualization-extension, extension, visualization",
+  "license": "mit",
+  "repository": "",
+  "dependencies": {}
+}
