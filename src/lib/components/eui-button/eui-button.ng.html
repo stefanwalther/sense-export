@@ -1,0 +1,5 @@
+<div style="text-align: {{align}};" ng-class="(fullWidth === false) ? 'container default' : 'container full-width'">
+	<div class="btn" ng-class="[(theme) ? 'btn-' + theme : 'btn-default', (fullWidth) ? 'full-width' : 'auto-width']" qva-activate="onClick();">
+		<i ng-if="icon !== ''" class="fa fa-{{icon}}" style="padding-right:5px;"></i><span ng-bind="label"></span>
+	</div>
+</div>

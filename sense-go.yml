@@ -1,0 +1,6 @@
+packageName: "sense-export"
+wbfolder:
+  enabled: false
+import:
+  files:
+    - ["./node_modules/sense-extension-utils/dist/extUtils.js", "./.tmp/lib/external/sense-extension-utils"]
