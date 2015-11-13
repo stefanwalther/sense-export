@@ -2,7 +2,8 @@
 define( [
 	'jquery',
 	'qvangular',
-	'text!./eui-simple-table.ng.html'
+	'text!./eui-simple-table.ng.html',
+	'text!./eui-simple-table.css'
 
 ], function ( $, qvangular, ngTemplate, cssContent ) {
 	'use strict';
@@ -25,11 +26,11 @@ define( [
 		return {
 			restrict: 'EA',
 			scope: {
-				hc: '='
+				hyperCube: '='
 			},
 			template: ngTemplate,
 			link: function ( $scope ) {
-				console.log( 'eui-simple-table:data', $scope.hc );
+				console.log( 'eui-simple-table:data', $scope.hyperCube );
 			}
 		};
 
