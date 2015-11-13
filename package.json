@@ -1,9 +1,26 @@
 {
   "name": "sense-export",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Stefan Walther",
+    "url": "http://qliksite.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanwalther/sense-export"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanwalther/sense-export/issues"
+  },
+  "verb": {
+    "baseUrl": "https://github.com/stefanwalther/sense-export/blob/master/",
+    "baseImgUrl": "https://raw.githubusercontent.com/stefanwalther/sense-export/master/",
+    "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip"
   },
   "keywords": [
     "qlik",
@@ -17,10 +34,6 @@
     "hypercube",
     "tabular-data"
   ],
-  "author": {
-    "name": "Stefan Walther",
-    "url": "http://qliksite.io"
-  },
   "devDependencies": {
     "gulp": "git://github.com/gulpjs/gulp#4.0",
     "sense-angular-directives": "^0.1.6",
