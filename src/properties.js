@@ -299,7 +299,8 @@ define( [
 					exportState: exportState,
 					exportFileName: exportFileName
 				}
-			}
+			},
+			debugPanel: debugPanel
 		}
 	};
 
@@ -311,8 +312,7 @@ define( [
 			dimensions: dimensions,
 			measures: measures,
 			sorting: sorting,
-			appearance: appearancePanel,
-			debugPanel: debugPanel
+			appearance: appearancePanel
 		}
 	};
 

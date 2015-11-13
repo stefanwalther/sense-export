@@ -3,12 +3,12 @@
   "description" : "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "icon" : "extension",
   "type" : "visualization",
-  "version": "0.1.0",
-  "preview" : "version-not-supported.png",
+  "version": "1.0.0",
+  "preview" : "preview.png",
   "author": "Stefan Walther",
-  "homepage": "",
+  "homepage": "https://github.com/stefanwalther/sense-export",
   "keywords": "qlik-sense, visualization-extension, extension, visualization",
   "license": "mit",
-  "repository": "",
+  "repository": "https://github.com/stefanwalther/sense-export",
   "dependencies": {}
 }

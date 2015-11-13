@@ -75,7 +75,7 @@ define( [
 		component: "dropdown",
 		ref: "props.buttonTheme",
 		label: "Style",
-		defaultValue: "default",
+		defaultValue: "primary",
 		options: [
 			{
 				value: "default",
@@ -251,11 +251,11 @@ define( [
 	};
 
 	var debugPanel = {
+		type: "items",
 		label: "Debug",
 		items: {
 			isDebug: isDebug,
 			debugDesc: debugDesc
-
 		}
 	};
 
@@ -299,7 +299,8 @@ define( [
 					exportState: exportState,
 					exportFileName: exportFileName
 				}
-			}
+			},
+			debugPanel: debugPanel
 		}
 	};
 
@@ -311,8 +312,7 @@ define( [
 			dimensions: dimensions,
 			measures: measures,
 			sorting: sorting,
-			appearance: appearancePanel,
-			debugPanel: debugPanel
+			appearance: appearancePanel
 		}
 	};
 

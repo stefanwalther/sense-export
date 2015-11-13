@@ -28,6 +28,8 @@
 	cursor: default;
 	overflow-y: auto;
 	overflow-x: hidden;
+
+	padding: 10px;
 }
 
 .eui-overlay-container .content {
