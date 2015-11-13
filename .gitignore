@@ -1,7 +1,6 @@
 # =========================
 # Project specific
 # =========================
-[Rr]esources/
 [Tt]ests/
 web.*.config
 /**/node_modules/
