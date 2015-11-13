@@ -42,5 +42,11 @@ These external libraries are used within this solution. Many thanks to the autho
 * Url: http://www.freepik.com
 * Author: http://www.freepik.com
 
+**Fontawesome Icons**
+* Name: Font Awesome
+* License: SIL OFL 1.1 (font) & MIT (CSS)
+* License-Url: https://fortawesome.github.io/Font-Awesome/license/
+* Url: https://fortawesome.github.io
+* Author: Font Awesome
 
 ---
