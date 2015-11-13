@@ -1,5 +1,6 @@
 /*global define*/
 define( [
+		'jquery',
 		'qlik',
 		'./properties',
 		'./initialproperties',
@@ -12,7 +13,7 @@ define( [
 		'./lib/components/eui-overlay/eui-overlay',
 		'./lib/components/eui-simple-table/eui-simple-table'
 	],
-	function ( qlik, props, initProps, cssContent, ngTemplate, extUtils ) {
+	function ( $, qlik, props, initProps, cssContent, ngTemplate, extUtils ) {
 		'use strict';
 
 		extUtils.addStyleToHeader( cssContent );
@@ -25,6 +26,8 @@ define( [
 			snapshot: {canTakeSnapshot: false},
 			template: ngTemplate,
 			controller: ['$scope', function ( $scope ) {
+
+				//$('.qv-object.qv-object-swr-sense-export').parent().parent().css('height', '80px','!important');
 
 				$scope.$watchCollection( 'layout.props', function ( newVals, oldVals ) {
 					Object.keys( newVals ).forEach( function ( key ) {
@@ -40,9 +43,8 @@ define( [
 					return qlik.table === undefined;
 				};
 				$scope.debug = function (  ) {
-					return ($scope.layout.props.isDebug === true);
+					return ($scope.layout.props.isDebug === true) && ($scope.$parent.$parent.editmode);
 				};
-
 
 				$scope.export = function () {
 
@@ -57,7 +59,8 @@ define( [
 						var qTable = qlik.table(this);
 						qTable.exportData( exportOpts );
 					} else {
-
+						//console.log('this', this.$parent.$parent.$parent.model);
+						//this.$parent.$parent.$parent.model.session("ExportData",null, exportOpts.format, null, exportOpts.fileName, exportOpts.state);
 					}
 
 				}

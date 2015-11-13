@@ -35,16 +35,12 @@
 
 These external libraries are used within this solution. Many thanks to the authors!
 
-**Library 1**
-* Name:
-* License:
-* Url:
-* Author:
+**Preview Icon**
+* Name: Spradsheet icon
+* License: CC BY 3.0
+* License-Url: http://creativecommons.org/licenses/by/3.0/
+* Url: http://www.freepik.com
+* Author: http://www.freepik.com
 
-**Library 2**
-* Name:
-* License:
-* Url:
-* Author:
 
 ---

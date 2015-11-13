@@ -4,11 +4,11 @@
   "icon" : "extension",
   "type" : "visualization",
   "version": "@@pkg.version",
-  "preview" : "version-not-supported.png",
+  "preview" : "preview.png",
   "author": "@@pkg.author.name",
-  "homepage": "",
+  "homepage": "@@pkg.repository.url",
   "keywords": "qlik-sense, visualization-extension, extension, visualization",
   "license": "mit",
-  "repository": "",
+  "repository": "@@pkg.repository.url",
   "dependencies": {}
 }

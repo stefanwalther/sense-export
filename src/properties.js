@@ -75,7 +75,7 @@ define( [
 		component: "dropdown",
 		ref: "props.buttonTheme",
 		label: "Style",
-		defaultValue: "default",
+		defaultValue: "primary",
 		options: [
 			{
 				value: "default",
@@ -251,11 +251,11 @@ define( [
 	};
 
 	var debugPanel = {
+		type: "items",
 		label: "Debug",
 		items: {
 			isDebug: isDebug,
 			debugDesc: debugDesc
-
 		}
 	};
 

@@ -1,4 +1,7 @@
-<div qv-extension eui-overlay overlay-enabled="showUnsupportedOverlay()" overlay-title="Unsupported version" overlay-text="This extensions uses some functionality which have been introduced in Qlik Sense 2.1.">
-	<eui-simple-table ng-if="debug()" hc="layout.qHyperCube"></eui-simple-table>
+<div qv-extension eui-overlay overlay-enabled="showUnsupportedOverlay()" overlay-title="Unsupported version" overlay-text="This visualization extension uses some functionality which have been introduced in Qlik Sense 2.1.">
+	<div ng-if="debug()">
+		<b>Note:</b> The debug mode shows only a max of 500 records, the export will always contain all records.
+		<eui-simple-table  hyper-cube="layout.qHyperCube"></eui-simple-table>
+	</div>
 	<eui-button ng-if="!debug()" label="layout.props.buttonLabel" theme="layout.props.buttonTheme" full-width="layout.props.fullWidth" icon="layout.props.buttonIcon" align="layout.props.buttonAlign" click="export()"></eui-button>
 </div>
