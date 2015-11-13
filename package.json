@@ -1,7 +1,7 @@
 {
   "name": "sense-export",
   "version": "0.1.0",
-  "description": "Just a simple button to export data in your Qlik Sense applications.",
+  "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,8 +22,9 @@
     "url": "http://qliksite.io"
   },
   "devDependencies": {
-     "sense-go": "^0.3.3",
-     "gulp": "git://github.com/gulpjs/gulp#4.0",
-    "verb": "verbose/verb"
+    "gulp": "git://github.com/gulpjs/gulp#4.0",
+    "sense-angular-directives": "^0.1.6",
+    "sense-extension-utils": "^0.3.0",
+    "sense-go": "^0.3.3"
   }
 }
