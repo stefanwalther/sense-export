@@ -4,6 +4,8 @@
 
 ![](http://serve.mod.bz/branch/)
 
+![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/sense-export.png)
+
 ***
 
 ## Table of Contents
@@ -40,7 +42,7 @@ Every object in Qlik Sense provides the export functionality, but sometimes one 
 Just a very simple button with some properties to define the layout and the behavior of the export.
 See **Configuration** for mor details.
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/all-props.png)](#screenshots)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/all-props.png)](#installation---download)
 
 ## Installation & Download
 
@@ -63,7 +65,7 @@ Pro Tip: Enable the debug mode if you want to see the result.
 
 * **Label** - Just define the label of the button, defaults to "Export".
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-label.png)](#installation---download)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-label.png)](#configuration)
 
 ## Button layout
 
@@ -75,7 +77,7 @@ The possibilities to layout the button should (hopefully) be pretty self-explana
 * **Icon** - Select one of the provided icons. Defaults to "download"
 Pro Tip: Font Awesome icons are used here, go to https://fortawesome.github.io/Font-Awesome/icons/ to get a nice overview of all icons possible.
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-export-definition.png)](#configuration)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-export-definition.png)](#compatibility)
 
 ## Export definition
 
@@ -85,7 +87,7 @@ Define the final output of the export:
 * **State** - You can define whether your current selection will be considered or not. If this is the desired behavior, select "Possible values", otherwise "All values", then always all data will be exported, regardless the current selections.
 * **File name** - Optionally you can define a file name.
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-export-definition.png)](#compatibility)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-export-definition.png)](#known-issues)
 
 ## Debug
 
@@ -97,14 +99,14 @@ Note:
 * The debug table will only be shown in edit mode, even if this settings is activated
 * The debug table only shows the first 500 records (for performance reasons). The export will contain all data, though.
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-debug.png)](#known-issues)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/prop-debug.png)](#contributing)
 
 ## Compatibility
 
 **_sense-export_** is designed to work with Qlik Sense 2.1.1 or higher.
 If you use the visualization extension in an older version of Qlik Sense the following message will be shown:
 
-[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/unsupported.png)](#contributing)
+[![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/unsupported.png)](#related-projects)
 
 ## Known Issues
 
