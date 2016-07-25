@@ -27,8 +27,6 @@ define( [
 			template: ngTemplate,
 			controller: ['$scope', function ( $scope ) {
 
-				//$('.qv-object.qv-object-swr-sense-export').parent().parent().css('height', '80px','!important');
-
 				$scope.$watchCollection( 'layout.props', function ( newVals, oldVals ) {
 					Object.keys( newVals ).forEach( function ( key ) {
 						if ( newVals[key] !== oldVals[key] ) {
@@ -51,13 +49,13 @@ define( [
 					var exportOpts = {
 						format: $scope.layout.props.exportFormat,
 						state: $scope.layout.props.exportState,
-						fileName: $scope.layout.props.exportFileName,
+						filename: $scope.layout.props.exportFileName,
 						download: true
 					};
 
 					if (qlik.table) {
 						var qTable = qlik.table(this);
-						qTable.exportData( exportOpts );
+						qTable.exportData( exportOpts ); //Todo: this will open the link using window.open, so popup-blockers might catch that
 					} else {
 						//console.log('this', this.$parent.$parent.$parent.model);
 						//this.$parent.$parent.$parent.model.session("ExportData",null, exportOpts.format, null, exportOpts.fileName, exportOpts.state);
