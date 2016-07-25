@@ -20,7 +20,8 @@
   "verb": {
     "baseUrl": "https://github.com/stefanwalther/sense-export/blob/master/",
     "baseImgUrl": "https://raw.githubusercontent.com/stefanwalther/sense-export/master/",
-    "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip"
+    "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip",
+    "toc": true
   },
   "keywords": [
     "qlik",
