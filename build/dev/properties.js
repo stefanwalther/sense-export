@@ -180,7 +180,7 @@ define( [
 	var exportFormat = {
 		type: "string",
 		component: "dropdown",
-		ref: "props.exportForma",
+		ref: "props.exportFormat",
 		label: "Format",
 		defaultValue: "OOXML",
 		options: [
