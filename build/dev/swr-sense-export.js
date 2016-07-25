@@ -53,8 +53,6 @@ define( [
 						download: true
 					};
 
-					console.log(exportOpts);
-
 					if (qlik.table) {
 						var qTable = qlik.table(this);
 						qTable.exportData( exportOpts ); //Todo: this will open the link using window.open, so popup-blockers might catch that

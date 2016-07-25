@@ -1,4 +1,9 @@
-v0.1.0:
+v1.0.2:
+  date: "2016-07-26"
+  changes:
+    - "Fix non recognized file-format"
+    - "Fix non recognized file name"
+v1.0.1:
   date: "2015-11-13"
   new:
     - "Initial version"
