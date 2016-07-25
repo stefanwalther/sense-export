@@ -41,7 +41,7 @@ define( [
 					return qlik.table === undefined;
 				};
 				$scope.debug = function (  ) {
-					return ($scope.layout.props.isDebug === true) && ($scope.$parent.$parent.editmode);
+					return (($scope.layout.props.isDebug === true) && (qlik.navigation && qlik.navigation.getMode() === 'edit'));
 				};
 
 				$scope.export = function () {

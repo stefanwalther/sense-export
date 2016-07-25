@@ -1,9 +1,13 @@
 v1.0.2:
   date: "2016-07-26"
   changes:
+    - "Fix debug mode not working in Qlik Sense > 2.2"
+v1.0.1:
+  date: "2016-07-26"
+  changes:
     - "Fix non recognized file-format"
     - "Fix non recognized file name"
-v1.0.1:
+v1.0.0:
   date: "2015-11-13"
   new:
     - "Initial version"
