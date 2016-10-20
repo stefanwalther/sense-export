@@ -1,17 +1,28 @@
+/*!
+
+* sense-export - Just a simple button to export data in your Qlik Sense application without displaying them in a table first.
+*
+* @version v1.0.2
+* @link 
+* @author [object Object]
+* @license MIT
+*/
+
+
 /*global define*/
 define( [
 	'underscore',
 	'ng!$q',
 	'ng!$http',
-	'./lib/external/sense-extension-utils/extUtils',
+	'./lib/external/sense-extension-utils/general-utils'
 
-], function ( _, $q, $http, extUtils ) {
+], function ( _, $q, $http, generalUtils ) {
 	'use strict';
 
 	var getIcons = function () {
 		var defer = $q.defer();
 
-		$http.get( extUtils.getExtensionPath( 'swr-sense-export' ) + '/lib/data/icons-fa.json' )
+		$http.get( generalUtils.getExtensionPath( 'swr-sense-export' ) + '/lib/data/icons-fa.json' )
 			.then( function ( res ) {
 
 				var sortedIcons = _.sortBy( res.data.icons, function ( o ) {

@@ -37,6 +37,6 @@
   ],
   "devDependencies": {
     "sense-angular-directives": "^0.1.6",
-    "sense-extension-utils": "^0.3.0"
+    "sense-extension-utils": "^0.4.0"
   }
 }
