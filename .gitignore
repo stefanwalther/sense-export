@@ -6,6 +6,8 @@ web.*.config
 /**/node_modules/
 /**/bower_components/
 /try/
+.tmp
+.sense-go.local.yml
 
 
 # =========================
