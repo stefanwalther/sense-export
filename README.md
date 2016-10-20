@@ -1,8 +1,6 @@
 # sense-export
 > Just a simple button to export data in your Qlik Sense application without displaying them in a table first.
 
-![](http://serve.mod.bz/branch/)
-
 ![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/sense-export.png)
 
 ---
