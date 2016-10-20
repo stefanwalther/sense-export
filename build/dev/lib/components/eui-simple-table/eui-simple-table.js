@@ -2,7 +2,7 @@
 
 * sense-export - Just a simple button to export data in your Qlik Sense application without displaying them in a table first.
 *
-* @version v1.0.2
+* @version v1.0.3
 * @link 
 * @author [object Object]
 * @license MIT
