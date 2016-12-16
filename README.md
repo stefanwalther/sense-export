@@ -1,4 +1,7 @@
 # sense-export
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8e0674740ec048ab85fc18bbdd85d2bd)](https://www.codacy.com/app/stefan-walther/sense-export?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=stefanwalther/sense-export&amp;utm_campaign=badger)
+
 > Just a simple button to export data in your Qlik Sense application without displaying them in a table first.
 
 ![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/sense-export.png)
