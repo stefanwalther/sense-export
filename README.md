@@ -1,4 +1,6 @@
 # sense-export
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/stefanwalther/sense-export.svg)](https://greenkeeper.io/)
 > Just a simple button to export data in your Qlik Sense application without displaying them in a table first.
 
 ![](https://raw.githubusercontent.com/stefanwalther/sense-export/master/docs/images/sense-export.png)
