@@ -41,7 +41,7 @@ define([
       $scope.$watchCollection('layout.props', function (newVals, oldVals) {
         Object.keys(newVals).forEach(function (key) {
           if (newVals[key] !== oldVals[key]) {
-            console.log(key, newVals[key]);
+            // console.log(key, newVals[key]);
             $scope[key] = newVals[key];
           }
         });

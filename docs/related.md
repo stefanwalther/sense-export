@@ -11,5 +11,5 @@ Some related projects (Qlik Sense Visualization Extensions) I have recently crea
   'sense-calendar-heatmap',
   'qliksense-extension-tutorial',
   'sense-extension-recipes'
-  ], {"silent": true}
+  ], {silent: true}
 ) %}  
