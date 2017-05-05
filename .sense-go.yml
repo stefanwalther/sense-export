@@ -1,6 +1,6 @@
 packageName: "sense-export"
 wbfolder:
-  enabled: false
+  enabled: true
 import:
   fromLocal:
     files:
