@@ -21,7 +21,8 @@
     "baseUrl": "https://github.com/stefanwalther/sense-export/blob/master/",
     "baseImgUrl": "https://raw.githubusercontent.com/stefanwalther/sense-export/master/",
     "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip",
-    "toc": true  },
+    "toc": true
+  },
   "keywords": [
     "qlik",
     "qliksense",
@@ -35,6 +36,8 @@
     "tabular-data"
   ],
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-space-single": "stefanwalther/eslint-config-space-single",
     "sense-angular-directives": "^0.1.6",
     "sense-extension-utils": "^0.4.0"
   }
