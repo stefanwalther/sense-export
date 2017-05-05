@@ -2,13 +2,22 @@
   "name": "sense-export",
   "version": "1.0.4",
   "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
-  "scripts": {
-    "docs": "verb",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix && eslint test --fix",
-    "lint:src": "eslint src",
-    "lint:src:fix": "eslint src --fix"
+  "keywords": [
+    "export",
+    "hypercube",
+    "qlik",
+    "qlik sense visualization extension",
+    "qlik-sense",
+    "qlik-sense-visualization-extension",
+    "qliksense",
+    "qliksense-visualization-extension",
+    "tabular-data",
+    "visualization"
+  ],
+  "bugs": {
+    "url": "https://github.com/stefanwalther/sense-export/issues"
   },
+  "license": "MIT",
   "author": {
     "name": "Stefan Walther",
     "url": "http://qliksite.io"
@@ -17,32 +26,36 @@
     "type": "git",
     "url": "https://github.com/stefanwalther/sense-export"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/stefanwalther/sense-export/issues"
+  "scripts": {
+    "docs": "verb",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix && eslint test --fix",
+    "lint:src": "eslint src",
+    "lint:src:fix": "eslint src --fix"
   },
-  "verb": {
-    "baseUrl": "https://github.com/stefanwalther/sense-export/blob/master/",
-    "baseImgUrl": "https://raw.githubusercontent.com/stefanwalther/sense-export/master/",
-    "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip",
-    "toc": true
-  },
-  "keywords": [
-    "qlik",
-    "qliksense",
-    "qlik-sense",
-    "qlik sense visualization extension",
-    "qlik-sense-visualization-extension",
-    "qliksense-visualization-extension",
-    "visualization",
-    "export",
-    "hypercube",
-    "tabular-data"
-  ],
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-space-single": "stefanwalther/eslint-config-space-single",
+    "gulp-format-md": "^0.1.12",
     "sense-angular-directives": "^0.2.2",
     "sense-extension-utils": "^0.4.0"
+  },
+  "verb": {
+    "run": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 3
+    },
+    "baseUrl": "https://github.com/stefanwalther/sense-export/blob/master/",
+    "baseImgUrl": "https://raw.githubusercontent.com/stefanwalther/sense-export/master/",
+    "buildLatest": "https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_latest.zip",
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ]
   }
 }
