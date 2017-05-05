@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "scripts": {
+    "docs": "verb",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix && eslint test --fix",
     "lint:src": "eslint src",
