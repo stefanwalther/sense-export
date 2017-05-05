@@ -21,6 +21,7 @@
 - [Compatibility](#compatibility)
 - [Known Issues](#known-issues)
 - [Contributing](#contributing)
+  * [Using the Project in Dev-Hub](#using-the-project-in-dev-hub)
 - [Related Projects](#related-projects)
 - [Author](#author)
 - [License](#license)
@@ -125,6 +126,11 @@ The process for contributing is outlined below:
 3. Create a pull request (PR)
 
 I cannot guarantee that I will merge all PRs but I will evaluate them all.
+
+### Using the Project in Dev-Hub
+
+The default build of **_sense-export_** minifies the JavaScript files and does not contain a wbfolder.wbl file (which is just necessary in Dev Hub).
+So if you want to edit the extension or create your own extension based on **_sense-export_** download the [./build/sense-export_dev.zip](https://github.com/stefanwalther/sense-export/raw/master/build/sense-export_dev.zip) file which always contains the latest version + a `wbfolder.wbl` file.
 
 ## Related Projects
 
