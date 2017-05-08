@@ -1,0 +1,3 @@
+# The following files from ./../node_modules/xlsx will be copied to this dir
+# - xlsx.full.min.js
+# - xlsx.min.map
