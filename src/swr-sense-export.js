@@ -1,6 +1,6 @@
 /* global define */
 define([
-  'jquery',
+  'jquery', // Todo: Don't think that this is needed anymore
   'qlik',
   './properties',
   './initialproperties',
@@ -29,6 +29,7 @@ define([
     controller: [
       '$scope', function ($scope) {
 
+        // Watch the properties
         $scope.$watchCollection('layout.props', function (newVals, oldVals) {
           Object.keys(newVals).forEach(function (key) {
             if (newVals[key] !== oldVals[key]) {
@@ -37,13 +38,17 @@ define([
           });
         });
 
+        // Returns whether the "unsupported" overlay should be shown or not
         $scope.showUnsupportedOverlay = function () {
           return qlik.table === undefined;
         };
+
+        // Returns whether we are in debug mode or not
         $scope.debug = function () {
           return (($scope.layout.props.isDebug === true) && (qlik.navigation && qlik.navigation.getMode() === 'edit'));
         };
 
+        // Main export method
         $scope.export = function () {
 
           var exportOpts = {
