@@ -4,7 +4,6 @@ define([
   'ng!$q',
   'ng!$http',
   './lib/external/sense-extension-utils/general-utils'
-
 ], function (_, $q, $http, generalUtils) {
   'use strict';
 
@@ -12,36 +11,35 @@ define([
     var defer = $q.defer();
 
     $http.get(generalUtils.getExtensionPath('swr-sense-export') + '/lib/data/icons-fa.json')
-			.then(function (res) {
+      .then(function (res) {
 
-  var sortedIcons = _.sortBy(res.data.icons, function (o) {
-    return o.name;
-  });
+        var sortedIcons = _.sortBy(res.data.icons, function (o) {
+          return o.name;
+        });
 
-  var propDef = [];
-  propDef.push({
-    value: '',
-    label: '>> No icon <<'
-  });
+        var propDef = [];
+        propDef.push({
+          value: '',
+          label: '>> No icon <<'
+        });
 
-  sortedIcons.forEach(function (icon) {
-    propDef.push(
-      {
-        value: icon.id,
-        label: icon.name
-      }
-					);
-  });
-  defer.resolve(propDef);
+        sortedIcons.forEach(function (icon) {
+          propDef.push(
+            {
+              value: icon.id,
+              label: icon.name
+            });
+        });
+        defer.resolve(propDef);
 
-});
+      });
 
     return defer.promise;
   };
 
-	// ****************************************************************************************
-	// Dimensions & Measures
-	// ****************************************************************************************
+  // ****************************************************************************************
+  // Dimensions & Measures
+  // ****************************************************************************************
   var dimensions = {
     uses: 'dimensions',
     min: 0,
@@ -58,9 +56,9 @@ define([
     uses: 'sorting'
   };
 
-	// ****************************************************************************************
-	// Appearance Panel
-	// ****************************************************************************************
+  // ****************************************************************************************
+  // Appearance Panel
+  // ****************************************************************************************
 
   var buttonLabel = {
     ref: 'props.buttonLabel',
@@ -167,9 +165,9 @@ define([
     defaultValue: false
   };
 
-	// ****************************************************************************************
-	// Export Format
-	// ****************************************************************************************
+  // ****************************************************************************************
+  // Export Format
+  // ****************************************************************************************
 
   var exportDesc = {
     type: 'string',
@@ -195,6 +193,18 @@ define([
       {
         value: 'CSV_T',
         label: 'Tab separated CSV'
+      },
+      {
+        value: 'OOXML-CLIENT',
+        label: 'Open Xml (Excel) - Client side'
+      },
+      {
+        value: 'CSV_C',
+        label: 'Comma separated CSV - Client side'
+      },
+      {
+        value: 'CSV_T',
+        label: 'Tab separated CSV - Client side'
       }
     ]
 
@@ -226,9 +236,9 @@ define([
     expression: 'optional'
   };
 
-	// ****************************************************************************************
-	// Debug Panel
-	// ****************************************************************************************
+  // ****************************************************************************************
+  // Debug Panel
+  // ****************************************************************************************
   var isDebug = {
     label: 'Show debug table',
     type: 'boolean',
@@ -259,9 +269,9 @@ define([
     }
   };
 
-	// ****************************************************************************************
-	// Appearance Panel
-	// ****************************************************************************************
+  // ****************************************************************************************
+  // Appearance Panel
+  // ****************************************************************************************
 
   var appearancePanel = {
     uses: 'settings',
@@ -304,7 +314,7 @@ define([
     }
   };
 
-	// Return values
+  // Return values
   return {
     type: 'items',
     component: 'accordion',
