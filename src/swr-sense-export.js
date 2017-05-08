@@ -9,12 +9,14 @@ define([
   './lib/external/sense-extension-utils/general-utils',
 
   // External libs
+  './lib/external/file-saver/FileSaver.min',
 
   // Components
   './lib/components/eui-button/eui-button',
   './lib/components/eui-overlay/eui-overlay',
   './lib/components/eui-simple-table/eui-simple-table'
-], function ($, qlik, props, initProps, cssContent, ngTemplate, generalUtils) { // eslint-disable-line max-params
+
+], function ($, qlik, props, initProps, cssContent, ngTemplate, generalUtils, fileSaver) { // eslint-disable-line max-params
   'use strict';
 
   generalUtils.addStyleToHeader(cssContent);
