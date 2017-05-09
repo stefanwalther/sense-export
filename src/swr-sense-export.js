@@ -10,7 +10,7 @@ define([
 
   // External libs
   './lib/external/file-saver/FileSaver.min',
-  './lib/external/xls/xlsx.full.min',
+  './lib/external/xlsx/xlsx.full.min',
 
   // Components
   './lib/components/eui-button/eui-button',
@@ -20,6 +20,8 @@ define([
 ], function ($, qlik, props, initProps, cssContent, ngTemplate, generalUtils, FileSaver, Xlsx) { // eslint-disable-line max-params
   'use strict';
 
+  // Todo: Take care of the prefix:
+  // var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/sense") + 1);
   generalUtils.addStyleToHeader(cssContent);
   var faUrl = '/extensions/swr-sense-export/lib/external/fontawesome/css/font-awesome.min.css';
   generalUtils.addStyleLinkToHeader(faUrl, 'swr_sense_export__fontawesome');
@@ -64,15 +66,15 @@ define([
                 filename: $scope.layout.props.exportFileName,
                 download: true
               };
-              if (qlik.table) {
-                var qTable = qlik.table(this);
-                qTable.exportData(exportOpts, function (result) {
-                  console.log(result);
-                }); // Todo: this will open the link using window.open, so popup-blockers might catch that
-              } else {
-                // Console.log('this', this.$parent.$parent.$parent.model);
-                // this.$parent.$parent.$parent.model.session("ExportData",null, exportOpts.format, null, exportOpts.fileName, exportOpts.state);
-              }
+              $scope.ext.model.exportData(exportOpts.format + 'xx', '/qHyperCubeDef', exportOpts.filename, exportOpts.download).then(function (result) {
+
+                if (exportOpts.download && result.qUrl) {
+                  var link = $scope.getBasePath() + result.qUrl;
+                  window.open(link);
+                } else {
+                  window.console.error(result);
+                }
+              });
               break;
 
             case 'OOXML__CLIENT':
@@ -85,6 +87,12 @@ define([
           }
         };
 
+        $scope.getBasePath = function () {
+          var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf('/sense') + 1);
+          var url = window.location.href;
+          url = url.split('/');
+          return url[0] + '//' + url[2] + (( prefix[prefix.length - 1] === '/' ) ? prefix.substr(0, prefix.length - 1) : prefix );
+        };
       }
     ]
   };

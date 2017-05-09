@@ -197,15 +197,16 @@ define([
       {
         value: 'OOXML__CLIENT',
         label: 'Open Xml (Excel) - Client side'
-      },
-      {
-        value: 'CSV_C__CLIENT',
-        label: 'Comma separated CSV - Client side'
-      },
-      {
-        value: 'CSV_T__CLIENT',
-        label: 'Tab separated CSV - Client side'
       }
+      // ,
+      // {
+      //   value: 'CSV_C__CLIENT',
+      //   label: 'Comma separated CSV - Client side'
+      // },
+      // {
+      //   value: 'CSV_T__CLIENT',
+      //   label: 'Tab separated CSV - Client side'
+      // }
     ]
 
   };
