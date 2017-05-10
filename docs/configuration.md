@@ -29,7 +29,7 @@ Define the final output of the export:
   1) Open XML (Excel), 
   2) Comma separated CSV, 
   3) Tab separated CSV"
-  4) Comma separated CSV - Client Side (see below for more information)
+  4) Comma separated CSV - Client Side ([see below](#a-note-on-comma-separated-csv---client-side) for more information)
 - **State** - You can define whether your current selection will be considered or not. If this is the desired behavior, select "Possible values", otherwise "All values", then always all data will be exported, regardless the current selections.
 - **File name** - Optionally you can define a file name.
 
