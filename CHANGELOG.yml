@@ -1,3 +1,10 @@
+v1.2.1:
+  date: "2017-05-10"
+  changes:
+    - "Fix issue because of Qlik Sense 3.2 SR3: table.exportData is broken in the client; use model.exportData instead"
+    - "Fix issue with virtual paths, download should now also work on every virtual path"
+  new:
+    - "Experimental new feature: Allow export client side, which solve the issue that with anonymous access one cannot download an export"
 v1.1.0:
   date: "2017-05-05"
   changes:
