@@ -1,4 +1,4 @@
-/* global define */
+/* global define, saveAs */
 define([
   'angular',
   'qlik',
@@ -80,15 +80,14 @@ define([
               });
               break;
 
-            case 'OOXML__CLIENT':
             case 'CSV_C__CLIENT':
-            case 'CSV_T__CLIENT':
-              console.log('Export using the client');
               $scope.getAllData()
                 .then(function (data) {
                   var dataArray = $scope.dataToArray($scope.layout.qHyperCube.qDimensionInfo, $scope.layout.qHyperCube.qMeasureInfo, data);
-                  console.log('result', dataArray);
-                  console.table(dataArray);
+                  $scope.arrayToCSVDownload(dataArray, $scope.layout.props.exportFileName || 'export.csv');
+                })
+                .catch(function(err) {
+                  window.console.error('Error in getAllData', err);
                 });
               break;
             default:
@@ -100,7 +99,7 @@ define([
           var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf('/sense') + 1);
           var url = window.location.href;
           url = url.split('/');
-          return url[0] + '//' + url[2] + (( prefix[prefix.length - 1] === '/' ) ? prefix.substr(0, prefix.length - 1) : prefix );
+          return url[0] + '//' + url[2] + ((prefix[prefix.length - 1] === '/') ? prefix.substr(0, prefix.length - 1) : prefix );
         };
 
         // Shamelessly borrowed and modified from: https://gist.github.com/yianni-ververis/bf749fe306c88198de2b6ceb043712e3
@@ -118,7 +117,7 @@ define([
               if (numberOfPages === 1) {
                 deferred.resolve(data[0].qMatrix);
               } else {
-                console.log('Download Started on', new Date());
+                window.console.log('Started to export data on ', new Date());
                 var Promise = $q;
                 var promises = Array.apply(null, new Array(numberOfPages)).map(function (data, index) {
                   var page = {
@@ -136,7 +135,7 @@ define([
                       qTotalData.push(data[j][0].qMatrix[k]);
                     }
                   }
-                  console.log('Download Ended on', new Date());
+                  window.console.log('Finished exporting data on ', new Date());
                   deferred.resolve(qTotalData);
                 });
               }
@@ -168,6 +167,21 @@ define([
           return table;
 
         };
+
+        $scope.arrayToCSVDownload = function (arr, fileName) {
+          var dataString = '';
+
+          arr.forEach(function (infoArray, index) {
+            dataString += infoArray.join(',') + '\n';
+          });
+
+          var BOM = '\uFEFF';
+          var data = BOM + dataString;
+          var blob = new Blob([data], {type: 'text/csv;charset=utf-8'});
+          saveAs(blob, fileName);
+
+        };
+
       }
     ]
   };
