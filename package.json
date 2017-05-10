@@ -1,6 +1,6 @@
 {
   "name": "sense-export",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "keywords": [
     "export",
@@ -37,9 +37,11 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-space-single": "stefanwalther/eslint-config-space-single",
+    "file-saver": "^1.3.3",
     "gulp-format-md": "^0.1.12",
     "sense-angular-directives": "^0.2.2",
-    "sense-extension-utils": "^0.4.0"
+    "sense-extension-utils": "^0.4.0",
+    "xlsx": "^0.9.13"
   },
   "verb": {
     "run": true,

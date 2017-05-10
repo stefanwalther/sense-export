@@ -25,11 +25,30 @@ Pro Tip: Font Awesome icons are used here, go to https://fortawesome.github.io/F
 
 Define the final output of the export:
 
-- **Format** - Select on of the following values: 1) Open XML (Excel), 2) Comma separated CSV, 3) Tab separated CSV; defaults ot "Open XML (Excel)"
+- **Format** - Select on of the following values (defaults ot "Open XML (Excel)): 
+  1) Open XML (Excel), 
+  2) Comma separated CSV, 
+  3) Tab separated CSV"
+  4) Comma separated CSV - Client Side (see below for more information)
 - **State** - You can define whether your current selection will be considered or not. If this is the desired behavior, select "Possible values", otherwise "All values", then always all data will be exported, regardless the current selections.
 - **File name** - Optionally you can define a file name.
 
 ![Property export definition]({%= verb.baseImgUrl %}docs/images/prop-export-definition.png)
+
+#### A note on "Comma separated CSV - Client Side"
+This is an experimental feature and will generated the exported file client-side, so in your browser, and not using the QIX Engine to generated the file.
+Why? There is a scenario where Qlik Sense Enterprise is configured to provide anonymous access to dashboard. In that case the QIX Engine generates the export files, but QRS does not allow to serve them (this can obviously seen as a bug and is being investigated). 
+
+Use this functionality with caution
+
+- Client side generation of export files is much slower
+- You might run into issues with larger data-sets
+
+Currently tested only with this setup:
+
+- Qlik Sense 3.2 SR3
+- Chrome, Firefox, IE
+
 
 ### Debug
 While working in edit mode it's quite helpful to test the data (which will then be exported in the defined format).
