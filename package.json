@@ -1,6 +1,6 @@
 {
   "name": "sense-export",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Just a simple button to export data in your Qlik Sense application without displaying them in a table first.",
   "keywords": [
     "export",

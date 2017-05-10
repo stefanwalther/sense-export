@@ -1,7 +1,10 @@
 v1.2.3:
   date: "2017-05-11"
+  changes:
+    - "Better error handling in different versions of Qlik Sense"
   fixes:
     - "Fix some linting issues"
+    - "Fix & test client side export with Qlik Sense 3.2 SR2"
 v1.2.2:
   date: "2017-05-10"
   changes:

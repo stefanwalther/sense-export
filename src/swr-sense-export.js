@@ -69,15 +69,22 @@ define([
                 filename: $scope.layout.props.exportFileName,
                 download: true
               };
-              $scope.ext.model.exportData(exportOpts.format, '/qHyperCubeDef', exportOpts.filename, exportOpts.download).then(function (result) {
+              $scope.ext.model.exportData(exportOpts.format, '/qHyperCubeDef', exportOpts.filename, exportOpts.download)
+                .then(function (retVal) {
 
-                if (exportOpts.download && result.qUrl) {
-                  var link = $scope.getBasePath() + result.qUrl;
-                  window.open(link);
-                } else {
-                  window.console.error(result);
-                }
-              });
+                  if (exportOpts.download) {
+
+                    // Again, unfortunately handling of different Qlik Sense versions.
+                    // >= Qlik Sense 3.2 SR3: retVal.qUrl
+                    // < Qlik Sense 3.2 SR3: retVal.result.qUrl
+                    var qUrl = retVal.result ? retVal.result.qUrl : retVal.qUrl;
+                    var link = $scope.getBasePath() + qUrl;
+                    window.open(link);
+                  }
+                })
+                .catch(function (err) {
+                  window.console.error('An error occurred in extension sense-export: ', err);
+                });
               break;
 
             case 'CSV_C__CLIENT':
@@ -95,6 +102,7 @@ define([
           }
         };
 
+        // Todo: should be moved to extension-utils
         $scope.getBasePath = function () {
           var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf('/sense') + 1);
           var url = window.location.href;
@@ -115,7 +123,12 @@ define([
               var pageHeight = Math.floor(10000 / columns);
               var numberOfPages = Math.ceil(totalHeight / pageHeight);
               if (numberOfPages === 1) {
-                deferred.resolve(data[0].qMatrix);
+                if (data.qDataPages) {
+                  // Qlik Sense 3.2 SR3
+                  deferred.resolve(data.qDataPages[0].qMatrix);
+                } else {
+                  deferred.resolve(data[0].qMatrix);
+                }
               } else {
                 window.console.log('Started to export data on ', new Date());
                 var Promise = $q;
@@ -131,8 +144,17 @@ define([
                 }, this);
                 Promise.all(promises).then(function (data) {
                   for (var j = 0; j < data.length; j++) {
-                    for (var k = 0; k < data[j][0].qMatrix.length; k++) {
-                      qTotalData.push(data[j][0].qMatrix[k]);
+
+                    if (data[j].qDataPages) {
+                      // < Qlik Sense 3.2 SR3
+                      for (var k1 = 0; k1 < data[j].qDataPages[0].qMatrix.length; k1++) {
+                        qTotalData.push(data[j].qDataPages[0].qMatrix[k1]);
+                      }
+                    } else {
+                      // >= Qlik Sense 3.2 SR3
+                      for (var k2 = 0; k2 < data[j][0].qMatrix.length; k2++) {
+                        qTotalData.push(data[j][0].qMatrix[k2]);
+                      }
                     }
                   }
                   window.console.log('Finished exporting data on ', new Date());

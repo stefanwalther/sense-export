@@ -112,7 +112,7 @@ Use this functionality with caution
 
 Currently tested only with this setup:
 
-* Qlik Sense 3.2 SR3
+* Qlik Sense 3.2 SR2, SR3
 * Chrome, Firefox, IE
 * Up to about 100.000 records with 10 columns (... takes quite a while, but works)
 
