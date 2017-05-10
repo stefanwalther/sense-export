@@ -1,6 +1,6 @@
 /* global define */
 define([
-  'jquery', // Todo: Don't think that this is needed anymore
+  'angular',
   'qlik',
   './properties',
   './initialproperties',
@@ -17,8 +17,11 @@ define([
   './lib/components/eui-overlay/eui-overlay',
   './lib/components/eui-simple-table/eui-simple-table'
 
-], function ($, qlik, props, initProps, cssContent, ngTemplate, generalUtils, FileSaver, Xlsx) { // eslint-disable-line max-params
+], function (angular, qlik, props, initProps, cssContent, ngTemplate, generalUtils, FileSaver, Xlsx) { // eslint-disable-line max-params
   'use strict';
+
+  var $injector = angular.injector(['ng']);
+  var $q = $injector.get('$q');
 
   // Todo: Take care of the prefix:
   // var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/sense") + 1);
@@ -66,7 +69,7 @@ define([
                 filename: $scope.layout.props.exportFileName,
                 download: true
               };
-              $scope.ext.model.exportData(exportOpts.format + 'xx', '/qHyperCubeDef', exportOpts.filename, exportOpts.download).then(function (result) {
+              $scope.ext.model.exportData(exportOpts.format, '/qHyperCubeDef', exportOpts.filename, exportOpts.download).then(function (result) {
 
                 if (exportOpts.download && result.qUrl) {
                   var link = $scope.getBasePath() + result.qUrl;
@@ -81,6 +84,12 @@ define([
             case 'CSV_C__CLIENT':
             case 'CSV_T__CLIENT':
               console.log('Export using the client');
+              $scope.getAllData()
+                .then(function (data) {
+                  var dataArray = $scope.dataToArray($scope.layout.qHyperCube.qDimensionInfo, $scope.layout.qHyperCube.qMeasureInfo, data);
+                  console.log('result', dataArray);
+                  console.table(dataArray);
+                });
               break;
             default:
               return false;
@@ -92,6 +101,72 @@ define([
           var url = window.location.href;
           url = url.split('/');
           return url[0] + '//' + url[2] + (( prefix[prefix.length - 1] === '/' ) ? prefix.substr(0, prefix.length - 1) : prefix );
+        };
+
+        // Shamelessly borrowed and modified from: https://gist.github.com/yianni-ververis/bf749fe306c88198de2b6ceb043712e3
+        $scope.getAllData = function () {
+          var qTotalData = [];
+          var model = $scope.ext.model;
+          var deferred = $q.defer();
+
+          model.getHyperCubeData('/qHyperCubeDef', [{qTop: 0, qWidth: 20, qLeft: 0, qHeight: 500}])
+            .then(function (data) {
+              var columns = model.layout.qHyperCube.qSize.qcx;
+              var totalHeight = model.layout.qHyperCube.qSize.qcy;
+              var pageHeight = Math.floor(10000 / columns);
+              var numberOfPages = Math.ceil(totalHeight / pageHeight);
+              if (numberOfPages === 1) {
+                deferred.resolve(data[0].qMatrix);
+              } else {
+                console.log('Download Started on', new Date());
+                var Promise = $q;
+                var promises = Array.apply(null, new Array(numberOfPages)).map(function (data, index) {
+                  var page = {
+                    qTop: (pageHeight * index) + index,
+                    qLeft: 0,
+                    qWidth: columns,
+                    qHeight: pageHeight,
+                    index: index
+                  };
+                  return model.getHyperCubeData('/qHyperCubeDef', [page]);
+                }, this);
+                Promise.all(promises).then(function (data) {
+                  for (var j = 0; j < data.length; j++) {
+                    for (var k = 0; k < data[j][0].qMatrix.length; k++) {
+                      qTotalData.push(data[j][0].qMatrix[k]);
+                    }
+                  }
+                  console.log('Download Ended on', new Date());
+                  deferred.resolve(qTotalData);
+                });
+              }
+            });
+          return deferred.promise;
+        };
+
+        $scope.dataToArray = function (dimensionInfo, measureInfo, data) {
+
+          var headers = [];
+          var table = [];
+          dimensionInfo.forEach(function (dimension) {
+            headers.push(dimension.qFallbackTitle);
+          });
+          measureInfo.forEach(function (measure) {
+            headers.push(measure.qFallbackTitle);
+          });
+
+          table.push(headers);
+
+          data.forEach(function (item) {
+            var row = [];
+            item.forEach(function (itemElem) {
+              row.push(itemElem.qText);
+            });
+            table.push(row);
+          });
+
+          return table;
+
         };
       }
     ]
