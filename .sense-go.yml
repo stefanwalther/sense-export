@@ -13,3 +13,5 @@ import:
       - ["./node_modules/sense-angular-directives/dist/eui-simple-table/eui-simple-table.ng.html", "./.tmp/lib/components/eui-simple-table"]
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.js", "./.tmp/lib/components/eui-overlay"]
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.css", "./.tmp/lib/components/eui-overlay"]
+watch:
+  - "./src/**/*.*"
