@@ -9,15 +9,15 @@ define([
   './lib/external/sense-extension-utils/general-utils',
 
   // External libs
-  './lib/external/file-saver/FileSaver.min',
-  './lib/external/xlsx/xlsx.full.min',
+  // './lib/external/file-saver/FileSaver.min',
+  // './lib/external/xlsx/xlsx.full.min',
 
   // Components
   './lib/components/eui-button/eui-button',
   './lib/components/eui-overlay/eui-overlay',
   './lib/components/eui-simple-table/eui-simple-table'
 
-], function (angular, qlik, props, initProps, cssContent, ngTemplate, generalUtils, FileSaver, Xlsx) { // eslint-disable-line max-params
+], function (angular, qlik, props, initProps, cssContent, ngTemplate, generalUtils) { // eslint-disable-line max-params
   'use strict';
 
   var $injector = angular.injector(['ng']);
@@ -86,7 +86,7 @@ define([
                   var dataArray = $scope.dataToArray($scope.layout.qHyperCube.qDimensionInfo, $scope.layout.qHyperCube.qMeasureInfo, data);
                   $scope.arrayToCSVDownload(dataArray, $scope.layout.props.exportFileName || 'export.csv');
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                   window.console.error('Error in getAllData', err);
                 });
               break;
@@ -99,7 +99,7 @@ define([
           var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf('/sense') + 1);
           var url = window.location.href;
           url = url.split('/');
-          return url[0] + '//' + url[2] + ((prefix[prefix.length - 1] === '/') ? prefix.substr(0, prefix.length - 1) : prefix );
+          return url[0] + '//' + url[2] + ((prefix[prefix.length - 1] === '/') ? prefix.substr(0, prefix.length - 1) : prefix);
         };
 
         // Shamelessly borrowed and modified from: https://gist.github.com/yianni-ververis/bf749fe306c88198de2b6ceb043712e3
@@ -171,7 +171,7 @@ define([
         $scope.arrayToCSVDownload = function (arr, fileName) {
           var dataString = '';
 
-          arr.forEach(function (infoArray, index) {
+          arr.forEach(function (infoArray /* , index */) {
             dataString += infoArray.join(',') + '\n';
           });
 
