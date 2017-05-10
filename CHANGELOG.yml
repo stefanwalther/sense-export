@@ -1,3 +1,7 @@
+v1.2.3:
+  date: "2017-05-11"
+  fixes:
+    - "Fix some linting issues"
 v1.2.2:
   date: "2017-05-10"
   changes:
