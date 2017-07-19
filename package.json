@@ -28,7 +28,7 @@
     "url": "https://github.com/stefanwalther/sense-export"
   },
   "scripts": {
-    "docs": "verb",
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix && eslint test --fix",
     "lint:src": "eslint src",
