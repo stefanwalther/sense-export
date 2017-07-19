@@ -9,7 +9,7 @@ define([
   './lib/external/sense-extension-utils/general-utils',
 
   // External libs
-  // './lib/external/file-saver/FileSaver.min',
+  './lib/external/file-saver/FileSaver.min',
   // './lib/external/xlsx/xlsx.full.min',
 
   // Components
@@ -201,7 +201,6 @@ define([
           var data = BOM + dataString;
           var blob = new Blob([data], {type: 'text/csv;charset=utf-8'});
           saveAs(blob, fileName);
-
         };
 
       }
