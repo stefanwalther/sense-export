@@ -201,7 +201,6 @@ define([
           var data = BOM + dataString;
           var blob = new Blob([data], {type: 'text/csv;charset=utf-8'});
           saveAs(blob, fileName);
-
         };
 
       }
