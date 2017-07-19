@@ -9,7 +9,7 @@ define([
   './lib/external/sense-extension-utils/general-utils',
 
   // External libs
-  // './lib/external/file-saver/FileSaver.min',
+'./lib/external/file-saver/FileSaver.min',
   // './lib/external/xlsx/xlsx.full.min',
 
   // Components
