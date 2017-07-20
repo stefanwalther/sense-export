@@ -1,3 +1,8 @@
+v1.2.5:
+  date: "2017-07-20"
+  changes:
+    - "Fix behavior that only 500 recs are exported"
+    - "Add option in the property panel to enable/disable debug output in the browser's debug console."
 v1.2.4:
   date: "2017-07-19"
   changes:

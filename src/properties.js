@@ -255,10 +255,31 @@ define([
     defaultValue: false
   };
 
+  var isDebugOutput = {
+    label: 'Show debug output',
+    type: 'boolean',
+    component: 'switch',
+    ref: 'props.isDebugOutput',
+    options: [{
+      value: true,
+      label: 'Enable'
+    }, {
+      value: false,
+      label: 'Disable'
+    }],
+    defaultValue: false
+  };
+
   var debugDesc = {
     type: 'string',
     component: 'text',
     label: 'The debug table helps you to create the desired result. It always shows only a maximum of 500 rows.'
+  };
+
+  var debugOutputDesc = {
+    type: 'string',
+    component: 'text',
+    label: 'Enable debug output to your browser\'s debug console.'
   };
 
   var debugPanel = {
@@ -266,7 +287,9 @@ define([
     label: 'Debug',
     items: {
       isDebug: isDebug,
-      debugDesc: debugDesc
+      debugDesc: debugDesc,
+      isDebugOutput: isDebugOutput,
+      debugOutputDesc: debugOutputDesc
     }
   };
 

@@ -10,6 +10,9 @@
 build/dev
 build/release
 
+# Test data
+example/fis-test.qvf
+
 # =========================
 # IDEs
 # =========================

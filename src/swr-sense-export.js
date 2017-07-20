@@ -37,6 +37,9 @@ define([
     controller: [
       '$scope', function ($scope) {
 
+        $scope.DEBUG = $scope.layout.props.isDebugOutput || true;
+        $scope.exporting = false;
+
         // Watch the properties
         $scope.$watchCollection('layout.props', function (newVals, oldVals) {
           Object.keys(newVals).forEach(function (key) {
@@ -58,6 +61,8 @@ define([
 
         // Main export method
         $scope.export = function () {
+
+          $scope.exporting = true;
 
           switch ($scope.layout.props.exportFormat) {
             case 'OOXML':
@@ -84,6 +89,9 @@ define([
                 })
                 .catch(function (err) {
                   window.console.error('An error occurred in extension sense-export: ', err);
+                })
+                .finally(function() {
+                  $scope.exporting = false;
                 });
               break;
 
@@ -95,9 +103,13 @@ define([
                 })
                 .catch(function (err) {
                   window.console.error('Error in getAllData', err);
+                })
+                .finally(function () {
+                  $scope.exporting = false;
                 });
               break;
             default:
+              $scope.exporting = false;
               return false;
           }
         };
@@ -120,8 +132,12 @@ define([
             .then(function (data) {
               var columns = model.layout.qHyperCube.qSize.qcx;
               var totalHeight = model.layout.qHyperCube.qSize.qcy;
-              var pageHeight = Math.floor(10000 / columns);
+              var pageHeight = 500;
               var numberOfPages = Math.ceil(totalHeight / pageHeight);
+              $scope.log('Number of recs/page', 500);
+              $scope.log('Recs', totalHeight);
+              $scope.log('Number of pages: ', numberOfPages);
+
               if (numberOfPages === 1) {
                 if (data.qDataPages) {
                   // Qlik Sense 3.2 SR3
@@ -130,7 +146,7 @@ define([
                   deferred.resolve(data[0].qMatrix);
                 }
               } else {
-                window.console.log('Started to export data on ', new Date());
+                $scope.log('Started to export data on ', new Date());
                 var Promise = $q;
                 var promises = Array.apply(null, new Array(numberOfPages)).map(function (data, index) {
                   var page = {
@@ -140,8 +156,10 @@ define([
                     qHeight: pageHeight,
                     index: index
                   };
+                  $scope.log('page ', (index + 1) + '/' + numberOfPages);
                   return model.getHyperCubeData('/qHyperCubeDef', [page]);
                 }, this);
+
                 Promise.all(promises).then(function (data) {
                   for (var j = 0; j < data.length; j++) {
 
@@ -157,7 +175,7 @@ define([
                       }
                     }
                   }
-                  window.console.log('Finished exporting data on ', new Date());
+                  $scope.log('Finished exporting data on ', new Date());
                   deferred.resolve(qTotalData);
                 });
               }
@@ -187,7 +205,6 @@ define([
           });
 
           return table;
-
         };
 
         $scope.arrayToCSVDownload = function (arr, fileName) {
@@ -203,6 +220,11 @@ define([
           saveAs(blob, fileName);
         };
 
+        $scope.log = function (msg, arg) {
+          if ($scope.DEBUG) {
+            window.console.log('[sense-export]', msg, arg);
+          }
+        };
       }
     ]
   };
