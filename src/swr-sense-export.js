@@ -90,7 +90,7 @@ define([
                 .catch(function (err) {
                   window.console.error('An error occurred in extension sense-export: ', err);
                 })
-                .finally(function() {
+                .finally(function () {
                   $scope.exporting = false;
                 });
               break;

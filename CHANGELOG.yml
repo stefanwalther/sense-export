@@ -1,3 +1,7 @@
+v1.3.0:
+  date: "2017-07-21"
+  changes:
+    - "Clicking on the export button now shows a spinner inside the button"
 v1.2.5:
   date: "2017-07-20"
   changes:

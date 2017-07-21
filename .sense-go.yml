@@ -5,13 +5,22 @@ import:
   fromLocal:
     files:
       - ["./node_modules/file-saver/FileSaver.min.js", "./.tmp/lib/external/file-saver/"]
+
       #- ["./node_modules/xlsx/dist/xlsx.full.min.js", "./.tmp/lib/external/xlsx/"]
       #- ["./node_modules/xlsx/dist/xlsx.min.map", "./.tmp/lib/external/xlsx/"]
+
       - ["./node_modules/sense-extension-utils/dist/general-utils.js", "./.tmp/lib/external/sense-extension-utils"]
+
       - ["./node_modules/sense-angular-directives/dist/eui-simple-table/eui-simple-table.js", "./.tmp/lib/components/eui-simple-table"]
       - ["./node_modules/sense-angular-directives/dist/eui-simple-table/eui-simple-table.css", "./.tmp/lib/components/eui-simple-table"]
       - ["./node_modules/sense-angular-directives/dist/eui-simple-table/eui-simple-table.ng.html", "./.tmp/lib/components/eui-simple-table"]
+
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.js", "./.tmp/lib/components/eui-overlay"]
       - ["./node_modules/sense-angular-directives/dist/eui-overlay/eui-overlay.css", "./.tmp/lib/components/eui-overlay"]
+
+      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-container.css", "./.tmp/lib/components/eui-button"]
+      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.js", "./.tmp/lib/components/eui-button"]
+      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.css", "./.tmp/lib/components/eui-button"]
+      - ["./node_modules/sense-angular-directives/dist/eui-button/eui-button.ng.html", "./.tmp/lib/components/eui-button"]
 watch:
   - "./src/**/*.*"
