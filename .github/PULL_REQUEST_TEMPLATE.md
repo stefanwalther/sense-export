@@ -6,6 +6,7 @@ Fixes #[issue number].
 [ ] Waiting for code review
 [ ] Waiting for merge
 ```
+
 ### Information
 ```
 [ ] Contains breaking changes
@@ -13,6 +14,7 @@ Fixes #[issue number].
 [ ] Contains documentation
 [ ] Contains test
 ```
+
 ### To-do list
 ```
 [ ] [Fix this thing]

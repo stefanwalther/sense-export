@@ -1,4 +1,4 @@
-### Description
+## Description
 
 [Description of the issue]
 
@@ -8,31 +8,35 @@
 2. [Step two]
 3. ...
 
-##### Expected behavior
+
+#### Expected behavior
 
 [What you expected to happen]
 
-##### Actual behavior
+#### Actual behavior
 
 [What actually happened]
 
+[Please include log files (e.g. Qlik Sense Server logs or Chrome Dev Tools' console output to the issue).]
+
+
 ### Environment
 
-##### Operating system
+#### Operating system
 
 ```
 [ ] Windows
 [ ] OSX
 [ ] Linux
 ```
-##### Qlik Sense
+#### Qlik Sense
 
 ```
 [ ] Desktop
 [ ] Enterprise
 ```
 
-##### Browser
+#### Browser
 
 ```
 [ ] Chrome
@@ -45,7 +49,7 @@
 
 ### Versions
 
-* Extension version:
+* Extension version: 
 * Browser: 
 * Qlik Sense: 
 * Operating system: 
