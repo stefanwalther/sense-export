@@ -43,7 +43,7 @@
     "gulp-format-md": "^0.1.12",
     "sense-angular-directives": "^0.4.3",
     "sense-extension-utils": "^0.4.0",
-    "sense-go": "^0.12.5",
+    "sense-go": "^0.14.7",
     "xlsx": "^0.10.0"
   },
   "verb": {
