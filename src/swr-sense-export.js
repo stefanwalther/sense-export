@@ -1,5 +1,6 @@
 /* global define, saveAs */
 define([
+  'require',
   'angular',
   'qlik',
   './properties',
@@ -17,16 +18,14 @@ define([
   './lib/components/eui-overlay/eui-overlay',
   './lib/components/eui-simple-table/eui-simple-table'
 
-], function (angular, qlik, props, initProps, cssContent, ngTemplate, generalUtils) { // eslint-disable-line max-params
+], function (require, angular, qlik, props, initProps, cssContent, ngTemplate, generalUtils) { // eslint-disable-line max-params
   'use strict';
 
   var $injector = angular.injector(['ng']);
   var $q = $injector.get('$q');
 
-  // Todo: Take care of the prefix:
-  // var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/sense") + 1);
   generalUtils.addStyleToHeader(cssContent);
-  var faUrl = '/extensions/swr-sense-export/lib/external/fontawesome/css/font-awesome.min.css';
+  var faUrl = require.toUrl('./lib/external/fontawesome/css/font-awesome.min.css');
   generalUtils.addStyleLinkToHeader(faUrl, 'swr_sense_export__fontawesome');
 
   return {
